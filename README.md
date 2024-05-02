@@ -1,36 +1,40 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## 概要
+このプロジェクトは、ユーザー認証、データベース管理、画像サービス、および支払い処理を統合したウェブアプリケーションの開発を目的としています。主に環境変数を活用して、各種サービスのAPIキーなどの機密情報を管理しています。
+主要技術
+- Next.js: フロントエンドフレームワークとして使用。
+- Prisma: ORMツールとして使用し、データベース操作を簡単に行います。
+- Supabase: PostgreSQLをベースにしたデータベースサービス。
+- Clerk: ユーザー認証サービス。
+- Stripe: 支払い処理サービス。
+- Unsplash: 画像提供サービス。
 
-## Getting Started
+## 環境変数
+プロジェクトでは、以下の環境変数を使用しています。これらは.envファイルに保存され、セキュリティを保ちながら各サービスへのアクセスを管理しています。
 
-First, run the development server:
+- NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY: Clerkの公開可能キー。
+- CLERK_SECRET_KEY: Clerkの秘密キー。
+- DATABASE_URL: Supabase PostgreSQLデータベースへの接続URL。
+- STRIPE_API_KEY: StripeのAPIキー。
+- STRIPE_WEBHOOK_SECRET: StripeのWebhookシークレット。
+- NEXT_PUBLIC_UNSPLASH_ACCESS_KEY: Unsplashのアクセスキー。
+- NEXT_PUBLIC_APP_URL: アプリケーションのベースURL。
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 技術仕様とこだわりポイント
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+技術仕様
+- フロントエンド: Next.jsを使用し、サーバーサイドレンダリング（SSR）と静的サイト生成（SSG）の利点を活用しています。これにより、パフォーマンスとSEOの最適化が図られています。
+- バックエンド: Prismaを通じてSupabase PostgreSQLデータベースに接続。データモデリングからクエリの実行まで、効率的かつタイプセーフなデータベース操作を実現しています。
+- 認証: Clerkを使用し、セキュアで柔軟な認証オプションを提供。ユーザー管理が容易で、カスタマイズ性が高い。
+- 支払い処理: Stripe APIを利用して、安全かつスムーズなオンライン決済機能を実装。サブスクリプション管理や一回限りの支払いが可能。
+- 画像サービス: Unsplash APIを活用し、高品質な画像をアプリケーション内で直接利用。ユーザー体験の向上を図っています。
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## こだわりポイント
+- セキュリティ: .envファイルを使用してAPIキーなどの機密情報を管理し、セキュリティを確保しています。また、HTTPSを通じてデータの暗号化を行い、通信の安全を保証しています。
+- ユーザーエクスペリエンス: レスポンシブデザインを採用し、どのデバイスからでも快適にアクセス可能。また、UI/UXにもこだわり、直感的で使いやすいインターフェースを提供しています。
+- パフォーマンス: Next.jsの最適化機能を活用し、ロード時間の短縮と効率的なリソース利用を実現。クライアントとサーバー間のデータ取得も最適化しています。
+- 拡張性: コンポーネントベースのアーキテクチャを採用しており、機能追加やメンテナンスが容易。将来的なスケールアップにも対応可能です。
+- データ管理: Prismaを使用することで、データベーススキーマの自動マイグレーションをサポート。データ整合性とバージョン管理が容易に行えます。
 
-## Learn More
+これらの技術仕様とこだわりポイントにより、本プロジェクトは高いパフォーマンスとユーザーエクスペリエンスを提供しつつ、開発の効率化と保守の容易さを実現しています。
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
