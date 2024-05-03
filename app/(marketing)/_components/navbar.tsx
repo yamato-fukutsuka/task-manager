@@ -12,12 +12,12 @@ export const Navbar = () => {
             justify-between w-full">
                 <Button size="sm" variant ="outline" asChild>
                     <Link href="/sign-in">
-                        Login
+                        ログイン
                     </Link>
                 </Button>
                 <Button size="sm" asChild>
                     <Link href="/sign-up">
-                        Get Taskify for free
+                        無料で使う
                     </Link>
                 </Button>
             </div>

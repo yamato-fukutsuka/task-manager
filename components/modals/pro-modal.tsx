@@ -41,16 +41,16 @@ export const ProModal = () => {
             </div>
             <div className="text-neutral-700 mx-auto space-y-6 p-6">
                 <h2 className="font-semibold text-xl">
-                  Upgrade to Taskify Pro Today!  
+                  有料版にアップデートする  
                 </h2>
                 <p className="text-xs font-semibold text-neutral-600">
-                    Explore the best of Taskify
+                    一番良いやプランを選ぶ
                 </p>
                 <div className="pl-3">
                     <ul className="text-sm list-desc">
-                        <li>Unlimited boards</li>
-                        <li>Advanced checklists</li>
-                        <li>Admin and security features</li>
+                        <li>無制限のボード</li>
+                        <li>先進的なクリックリスト</li>
+                        <li>認証とセキュリティ</li>
                         <li>And more!</li>
                     </ul>
                 </div>
